@@ -465,7 +465,7 @@ async function sendDataToGoogleSheets(name, phone, scores) {
     
     // URL de votre script Google Apps Script déployé en tant qu'application web
     // Remplacez cette URL par celle de votre propre script
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbykCb3VcfAVk3jpQXdq558n_0aFdHoPEuzXZbOaS6lfQLlMtTPoo7oHRjsv3pfM5uvj9g/exec';
+    const scriptURL = 'https://script.google.com/a/macros/uit.ac.ma/s/AKfycbxr1rFjfx1Qwkvwoq2n3c89olJ7CYsklUflzUsoXRqbssWKkuZk_bE3i6lRBcp6hs5l/exec';
     
     try {
         // Envoyer les données à Google Sheets
