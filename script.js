@@ -451,7 +451,6 @@ function updatePercentageCircle(competency, percentage) {
 }
 
 async function sendDataToGoogleSheets(name, phone, scores) {
-    // Préparer les données à envoyer
     const data = {
         name: name,
         phone: phone,
@@ -462,27 +461,31 @@ async function sendDataToGoogleSheets(name, phone, scores) {
         selectedLanguage: selectedLanguage,
         timestamp: new Date().toISOString()
     };
-    
-    // URL de votre script Google Apps Script déployé en tant qu'application web
-    // Remplacez cette URL par celle de votre propre script
+
     const scriptURL = 'https://script.google.com/a/macros/uit.ac.ma/s/AKfycbxr1rFjfx1Qwkvwoq2n3c89olJ7CYsklUflzUsoXRqbssWKkuZk_bE3i6lRBcp6hs5l/exec';
-    
+
     try {
-        // Envoyer les données à Google Sheets
         const response = await fetch(scriptURL, {
             method: 'POST',
-            body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            body: JSON.stringify(data)
         });
-        
+
+        // Vérifie si la réponse HTTP est OK
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP : ${response.status} - ${response.statusText}`);
+        }
+
         const result = await response.json();
-        console.log('Données envoyées avec succès:', result);
+        console.log('✅ Données envoyées avec succès :', result);
     } catch (error) {
-        console.error('Erreur lors de l\'envoi des données:', error);
+        console.error('❌ Erreur lors de l\'envoi des données :', error);
+        alert('Erreur lors de l\'envoi des données. Veuillez réessayer.');
     }
 }
+
 
 function updateUILanguage(lang) {
     // Cette fonction mettrait à jour tous les textes de l'interface en fonction de la langue sélectionnée
