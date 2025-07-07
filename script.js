@@ -462,7 +462,7 @@ async function sendDataToGoogleSheets(name, phone, scores) {
         timestamp: new Date().toISOString()
     };
 
-    const scriptURL = 'https://script.google.com/a/macros/uit.ac.ma/s/AKfycbxr1rFjfx1Qwkvwoq2n3c89olJ7CYsklUflzUsoXRqbssWKkuZk_bE3i6lRBcp6hs5l/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxjn7vOGSkMxp085NatdXmeA9kw-pUp4GIa7tASIi79l3oSJDkXQv2jMZx3lfyTL6--/exec';
 
     try {
         const response = await fetch(scriptURL, {
